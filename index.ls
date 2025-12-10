@@ -10,6 +10,9 @@ stop-by = null
 delay = 60000
 audio-remind = null
 audio-end = null
+fg-color = '#222'
+bg-color = '#fff'
+volume-level = 1
 
 new-audio = (file) ->
   node = new Audio!
@@ -24,6 +27,29 @@ sound-toggle = (des, state) ->
   else des
     ..currentTime = 0
     ..pause!
+
+apply-colors = ->
+  $ \#timer
+    .css \color, fg-color
+    .css \background, bg-color
+
+open-fg-picker = ->
+  $ \#fg-color-picker .click!
+
+open-bg-picker = ->
+  $ \#bg-color-picker .click!
+
+set-foreground = (value) ->
+  fg-color := value
+  apply-colors!
+
+set-background = (value) ->
+  bg-color := value
+  apply-colors!
+
+set-volume = (value) ->
+  volume-level := parseFloat value
+  if audio-end => audio-end.volume = volume-level
 
 show = ->
   is-show := !is-show
@@ -64,14 +90,14 @@ reset = ->
   if handler => clearInterval handler
   handler := null
   $ \#timer .text delay
-  $ \#timer .css \color, \#fff
+  apply-colors!
   resize!
 
 
 blink = ->
   is-blink := true
   is-light := !is-light
-  $ \#timer .css \color, if is-light => \#fff else \#f00
+  $ \#timer .css \color, if is-light => fg-color else \#f00
 
 count = ->
   tm = $ \#timer
@@ -111,9 +137,11 @@ resize = ->
 
 window.onload = ->
   $ \#timer .text delay
+  apply-colors!
   resize!
   #audio-remind := new-audio \audio/cop-car.mp3
   #audio-end := new-audio \audio/fire-alarm.mp3
   audio-remind := new-audio \audio/smb_warning.mp3
   audio-end := new-audio \audio/smb_mariodie.mp3
+  set-volume volume-level
 window.onresize = -> resize!

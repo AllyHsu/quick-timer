@@ -1,1 +1,37 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" type="text/css" href="bootstrap3.min.css"><link rel="stylesheet" type="text/css" href="index.css"><script type="text/javascript" src="jquery-1.10.2.min.js"></script><script type="text/javascript" src="bootstrap3.min.js"></script><script type="text/javascript" src="index.js"></script></head><body><div id="timer">????</div><a class="btn btn-info fbtn" id="min60" onclick="adjust(-60)">-60</a><a class="btn btn-info fbtn" id="min10" onclick="adjust(-10)">-10</a><a class="btn btn-primary" id="toggle" onclick="toggle()">RUN</a><a class="btn btn-warning" id="reset" onclick="reset()">RESET</a><a class="btn btn-default" id="hide" onclick="show()">&#xd60;</a><a class="btn btn-info fbtn" id="add10" onclick="adjust(10)">+10</a><a class="btn btn-info fbtn" id="add60" onclick="adjust(60)">+60</a><a class="btn btn-success fbtn" id="def10" onclick="adjust(0,10)">10 sec</a><a class="btn btn-success fbtn" id="def30" onclick="adjust(0,30)">30 sec</a><a class="btn btn-success fbtn" id="def60" onclick="adjust(0,60)">1 min</a><a class="btn btn-success fbtn" id="def180" onclick="adjust(0,180)">3 min</a><a class="btn btn-success fbtn" id="def300" onclick="adjust(0,300)">5 min</a><a class="btn btn-success fbtn" id="def600" onclick="adjust(0,600)">10 min</a><a class="btn btn-success fbtn" id="def900" onclick="adjust(0,900)">15 min</a><a class="btn btn-success fbtn" id="def1800" onclick="adjust(0,1800)">30 min</a></body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="bootstrap3.min.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap3.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+  </head>
+  <body>
+    <div id="timer">????</div>
+    <a id="min60" class="btn btn-info fbtn" onclick="adjust(-60)">-60</a>
+    <a id="min10" class="btn btn-info fbtn" onclick="adjust(-10)">-10</a>
+    <a id="toggle" class="btn btn-primary" onclick="toggle()">RUN</a>
+    <a id="reset" class="btn btn-warning" onclick="reset()">RESET</a>
+    <a id="hide" class="btn btn-default" onclick="show()">&#xd60;</a>
+    <a id="add10" class="btn btn-info fbtn" onclick="adjust(10)">+10</a>
+    <a id="add60" class="btn btn-info fbtn" onclick="adjust(60)">+60</a>
+    <a id="def10" class="btn btn-success fbtn" onclick="adjust(0,10)">10 sec</a>
+    <a id="def30" class="btn btn-success fbtn" onclick="adjust(0,30)">30 sec</a>
+    <a id="def60" class="btn btn-success fbtn" onclick="adjust(0,60)">1 min</a>
+    <a id="def180" class="btn btn-success fbtn" onclick="adjust(0,180)">3 min</a>
+    <a id="def300" class="btn btn-success fbtn" onclick="adjust(0,300)">5 min</a>
+    <a id="def600" class="btn btn-success fbtn" onclick="adjust(0,600)">10 min</a>
+    <a id="def900" class="btn btn-success fbtn" onclick="adjust(0,900)">15 min</a>
+    <a id="def1800" class="btn btn-success fbtn" onclick="adjust(0,1800)">30 min</a>
+    <input id="fg-color-picker" type="color" value="#222" onchange="setForeground(this.value)">
+    <input id="bg-color-picker" type="color" value="#fff" onchange="setBackground(this.value)">
+    <a id="fg-color-btn" class="btn btn-default" onclick="openFgPicker()">前景色</a>
+    <a id="bg-color-btn" class="btn btn-default" onclick="openBgPicker()">背景色</a>
+    <div id="volume-control" class="volume-control">
+      <label for="volume-range">音量</label>
+      <input id="volume-range" type="range" min="0" max="1" step="0.1" value="1" oninput="setVolume(this.value)">
+    </div>
+  </body>
+</html>
