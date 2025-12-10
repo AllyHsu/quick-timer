@@ -24,3 +24,10 @@ html
     a#def600.btn.btn-success.fbtn(onclick="adjust(0,600)") 10 min
     a#def900.btn.btn-success.fbtn(onclick="adjust(0,900)") 15 min
     a#def1800.btn.btn-success.fbtn(onclick="adjust(0,1800)") 30 min
+    input#fg-color-picker(type="color", value="#222", onchange="setForeground(this.value)")
+    input#bg-color-picker(type="color", value="#fff", onchange="setBackground(this.value)")
+    a#fg-color-btn.btn.btn-default(onclick="openFgPicker()") 前景色
+    a#bg-color-btn.btn.btn-default(onclick="openBgPicker()") 背景色
+    .volume-control#volume-control
+      label(for="volume-range") 音量
+      input#volume-range(type="range", min="0", max="1", step="0.1", value="1", oninput="setVolume(this.value)")
